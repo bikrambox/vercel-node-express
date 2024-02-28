@@ -8,9 +8,9 @@ const AWS = require('aws-sdk');
 
 // Configure AWS SDK with environment variables
 AWS.config.update({
-  accessKeyId: process.env.AWSs_ACCESS_KEY_ID,
-  secretAccessKey: process.env.AWSs_SECRET_ACCESS_KEY,
-  region: 'process.env.AWSs_REGION'
+  accessKeyId: 'AKIAUHS4QYRIDFNDSQES',
+  secretAccessKey: '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',
+  region: 'eu-central-1'
 });
 
 // Create an EC2 service object
@@ -40,10 +40,6 @@ router.get('/', (req, res) => {
       }
     }
   });
-
-console.log(process.env.AWS_ACCESS_KEY_ID);
-console.log(process.env.AWS_SECRET_ACCESS_KEY);
-console.log(process.env.AWS_REGION);
 
 });
 
