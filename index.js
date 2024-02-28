@@ -1,10 +1,14 @@
 // index.js
 const express = require('express');
+const path = require('path');
+const port = 3000;
 const app = express();
+// Serve static files from the 'public' directory
+app.use(express.static(path.join(__dirname, 'public')));
+
+
 const helloRoute = require('./api/hello');
 const awsRoute = require('./api/aws');
-
-const port = 3000;
 
 app.use('/api/hello', helloRoute);
 app.use('/api/aws', awsRoute);
