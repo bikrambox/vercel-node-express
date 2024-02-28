@@ -8,9 +8,9 @@ const AWS = require('aws-sdk');
 
 // Configure AWS SDK with environment variables
 AWS.config.update({
-  accessKeyId: 'AKIAUHS4QYRIDFNDSQES',
-  secretAccessKey: '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',
-  region: 'eu-central-1'
+  accessKeyId: process.env.AWSs_ACCESS_KEY_ID,
+  secretAccessKey: process.env.AWSs_SECRET_ACCESS_KEY,
+  region: 'process.env.AWSs_REGION'
 });
 
 // Create an EC2 service object
