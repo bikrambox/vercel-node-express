@@ -8,8 +8,8 @@ const AWS = require('aws-sdk');
 
 // Configure AWS SDK with environment variables
 AWS.config.update({
-  accessKeyId: process.env.AWS_ACCESS_KEY_ID,
-  secretAccessKey: process.env.AWS_SECRET_ACCESS_KEY,
+  accessKeyId: 'AKIAUHS4QYRIDFNDSQES',
+  secretAccessKey: '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',
   region: 'eu-central-1'
 });
 
