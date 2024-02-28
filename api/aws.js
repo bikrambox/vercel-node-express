@@ -17,36 +17,27 @@ AWS.config.update({
 const ec2 = new AWS.EC2();
 
 router.get('/', (req, res) => {
-  // Define parameters for DescribeInstances API call
-  const params = {
-    Filters: [
-      {
-        Name: 'Instance ID', // Filter by instance ID
-        Values: ['process.env.INSTANCE_ID'] // Replace 'YOUR_INSTANCE_ID' with your specific instance ID
-      }
-    ]
-  };
+  // Specify the instance ID you want to retrieve information for
+  const instanceId = 'i-006f85896d4d73415'; // Replace 'YOUR_INSTANCE_ID' with the actual instance ID
 
-  // Call the DescribeInstances operation
-  ec2.describeInstances(params, (err, data) => {
+  // Call the DescribeInstances operation with the specific instance ID
+  ec2.describeInstances({ InstanceIds: [instanceId] }, (err, data) => {
     if (err) {
       console.error("Error:", err);
-      res.status(500).send('Error fetching instances from AWS.');
+      res.status(500).send('Error fetching instance details from AWS.');
     } else {
-      const instances = [];
-      // Parse the response and extract instance information
-      data.Reservations.forEach(reservation => {
-        reservation.Instances.forEach(instance => {
-          instances.push({
-            InstanceId: instance.InstanceId,
-            InstanceType: instance.InstanceType,
-            State: instance.State.Name
-            // Add more fields as needed
-          });
-        });
-      });
-      // Send the list of instances as JSON response
-      res.json(instances);
+      if (data.Reservations.length > 0 && data.Reservations[0].Instances.length > 0) {
+        const instance = data.Reservations[0].Instances[0];
+        const instanceDetails = {
+          InstanceId: instance.InstanceId,
+          InstanceType: instance.InstanceType,
+          State: instance.State.Name,
+          // Add more fields as needed
+        };
+        res.json(instanceDetails);
+      } else {
+        res.status(404).send('Instance not found.');
+      }
     }
   });
 });
