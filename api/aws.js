@@ -19,7 +19,6 @@ const ec2 = new AWS.EC2();
 router.get('/', (req, res) => {
   // Specify the instance ID you want to retrieve information for
   const instanceId = process.env.INSTANCER; // Replace 'YOUR_INSTANCE_ID' with the actual instance ID
-  // const instanceId = 'i-006f85896d4d73415'; // Replace 'YOUR_INSTANCE_ID' with the actual instance ID
 
   // Call the DescribeInstances operation with the specific instance ID
   ec2.describeInstances({ InstanceIds: [instanceId] }, (err, data) => {
