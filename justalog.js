@@ -19,3 +19,14 @@
 //   retryable: false,
 //   retryDelay: 37.939087486271795
 // }
+
+
+
+
+// AWS.config.update({
+//     accessKeyId: 'AKIAUHS4QYRIDFNDSQES',
+//     secretAccessKey: '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',
+//     region: 'eu-central-1'
+//   });
+
+

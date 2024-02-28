@@ -8,9 +8,9 @@ const AWS = require('aws-sdk');
 
 // Configure AWS SDK with environment variables
 AWS.config.update({
-  accessKeyId: 'AKIAUHS4QYRIDFNDSQES',
-  secretAccessKey: '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',
-  region: 'eu-central-1'
+  accessKeyId: process.env.KEYER,
+  secretAccessKey: process.env.SECRET_KEYER,
+  region: process.env.REG
 });
 
 // Create an EC2 service object
@@ -18,7 +18,8 @@ const ec2 = new AWS.EC2();
 
 router.get('/', (req, res) => {
   // Specify the instance ID you want to retrieve information for
-  const instanceId = 'i-006f85896d4d73415'; // Replace 'YOUR_INSTANCE_ID' with the actual instance ID
+  const instanceId = process.env.INSTANCER; // Replace 'YOUR_INSTANCE_ID' with the actual instance ID
+  // const instanceId = 'i-006f85896d4d73415'; // Replace 'YOUR_INSTANCE_ID' with the actual instance ID
 
   // Call the DescribeInstances operation with the specific instance ID
   ec2.describeInstances({ InstanceIds: [instanceId] }, (err, data) => {
