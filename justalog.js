@@ -21,7 +21,10 @@
 // }
 
 
-
+// KEYER=AKIAUHS4QYRIDFNDSQES
+// SECRET_KEYER=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
+// REG=eu-central-1
+// INSTANCER=i-006f85896d4d73415
 
 // AWS.config.update({
 //     accessKeyId: 'AKIAUHS4QYRIDFNDSQES',
