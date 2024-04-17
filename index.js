@@ -1,17 +1,18 @@
-// index.js
 const express = require('express');
 const path = require('path');
 const port = 3000;
 const app = express();
+
 // Serve static files from the 'public' directory
 app.use(express.static(path.join(__dirname, 'public')));
 
-
 const helloRoute = require('./api/hello');
 const awsRoute = require('./api/aws');
+const redisRoute = require('./api/redis');
 
 app.use('/api/hello', helloRoute);
 app.use('/api/aws', awsRoute);
+app.use('/api/cli', redisRoute);
 
 app.listen(port, () => {
   console.log(`Server is running on http://localhost:${port}`);
