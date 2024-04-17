@@ -6,7 +6,7 @@ const router = express.Router();
 router.get('/', (req, res) => {
     try {
         // Read the HTML file
-        fs.readFile('index.html', (err, data) => {
+        fs.readFile('./index.html', (err, data) => {
             if (err) {
                 res.status(404).send("404 Not Found");
             } else {
