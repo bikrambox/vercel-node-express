@@ -185,7 +185,7 @@ router.get('/', async (req, res) => {
       port: 22,
       username: 'alegra6',
       // privateKey: require('fs').readFileSync('/home/controlpl/Documents/Dacs/vercel_node/api/alegra6ser'),
-      privateKey: require('fs').readFileSync('./alegra6ser'),
+      privateKey: require('fs').readFileSync('/var/task/api/alegra6ser'),
       debug: true
     };
 
