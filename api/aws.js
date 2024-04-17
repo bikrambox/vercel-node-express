@@ -35,7 +35,7 @@ router.get('/', (req, res) => {
           // Add more fields as needed
         };
         res.json(instanceDetails);
-        console.log(process.env.HELLOFATHING)
+        // console.log(process.env.HELLOFATHING)
       } else {
         res.status(404).send('Instance not found.');
       }

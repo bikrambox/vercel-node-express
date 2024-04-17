@@ -184,8 +184,8 @@ router.get('/', async (req, res) => {
       host: '209.182.205.2',
       port: 22,
       username: 'alegra6',
-      // privateKey: require('fs').readFileSync('/home/controlpl/Documents/Dacs/vercel_node/api/alegra6ser'),
-      privateKey: require('fs').readFileSync('/var/task/api/alegra6ser'),
+      // privateKey: require('fs').readFileSync('/home/controlpl/Documents/Dacs/vercel_node/api/alegra6ser'), //When working in Local
+      privateKey: process.env.HELLOFATHING, //when working in Vercel
       debug: true
     };
 
