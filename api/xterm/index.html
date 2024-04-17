@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="/favicon.png" type="image/png">
+    <link rel="stylesheet" href="node_modules/xterm/css/xterm.css">
+    <script src="node_modules/xterm/lib/xterm.js"></script>
+    <title>xtermJS</title>
+</head>
+<body>
+    <div id="terminal"></div>
+    <script>
+        var termina = new Terminal({
+            fontFamily:"Hack"
+        });
+        termina.open(Document.getElementById("terminal"));
+        termina.write("fermina$");
+    </script>
+</body>
+</html>

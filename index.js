@@ -9,10 +9,13 @@ app.use(express.static(path.join(__dirname, 'public')));
 const helloRoute = require('./api/hello');
 const awsRoute = require('./api/aws');
 const redisRoute = require('./api/sshd');
+const commandRoute = require('./api/command')
+
 
 app.use('/api/hello', helloRoute);
 app.use('/api/aws', awsRoute);
 app.use('/api/sshd', redisRoute);
+app.use('/api/command', commandRoute);
 
 app.listen(port, () => {
   console.log(`Server is running on http://localhost:${port}`);
