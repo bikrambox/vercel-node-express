@@ -1,12 +1,13 @@
 const express = require('express');
-// const http = require('http');
-const fs = require('fs');
-
 const router = express.Router();
+const fs = require('fs');
+const path = require('path');
+
 router.get('/', (req, res) => {
     try {
+        const indexPath = path.join(__dirname, 'index.html'); // Constructs the absolute path to index.html
         // Read the HTML file
-        fs.readFile('./index.html', (err, data) => {
+        fs.readFile(indexPath, (err, data) => {
             if (err) {
                 res.status(404).send("404 Not Found");
             } else {
